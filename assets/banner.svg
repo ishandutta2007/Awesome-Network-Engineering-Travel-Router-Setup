@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050814" />
+      <stop offset="50%" stop-color="#0b1329" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+
+    <!-- Glowing Cyber / Network Gradients -->
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="50%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#111c38" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#090f20" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Cyber Grid Pattern -->
+    <pattern id="cyberGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38bdf8" stroke-width="0.75" stroke-opacity="0.08" />
+      <circle cx="0" cy="0" r="1" fill="#38bdf8" fill-opacity="0.15" />
+    </pattern>
+
+    <!-- Keyframe Styles & Animations -->
+    <style>
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.35; transform: scale(1); }
+        50% { opacity: 0.85; transform: scale(1.06); }
+      }
+      @keyframes dashFlow {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -400; }
+      }
+      @keyframes wifiWave {
+        0% { opacity: 0.2; transform: scale(0.96); }
+        50% { opacity: 1; transform: scale(1.04); }
+        100% { opacity: 0.2; transform: scale(0.96); }
+      }
+      @keyframes floatCard {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-7px); }
+      }
+      @keyframes floatNode {
+        0%, 100% { transform: translateY(0px) translateX(0px); }
+        50% { transform: translateY(-10px) translateX(6px); }
+      }
+      .pulse-ring {
+        transform-origin: 1040px 170px;
+        animation: pulseGlow 4s ease-in-out infinite;
+      }
+      .tunnel-flow {
+        stroke-dasharray: 8, 12;
+        animation: dashFlow 8s linear infinite;
+      }
+      .tunnel-flow-fast {
+        stroke-dasharray: 6, 10;
+        animation: dashFlow 5s linear infinite;
+      }
+      .wifi-pulse {
+        transform-origin: 100px 100px;
+        animation: wifiWave 3s ease-in-out infinite;
+      }
+      .card-float {
+        animation: floatCard 6s ease-in-out infinite;
+      }
+      .floating-particle-1 { animation: floatNode 5s ease-in-out infinite; }
+      .floating-particle-2 { animation: floatNode 7s ease-in-out 1s infinite; }
+      .title-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+      .sub-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-weight: 500;
+      }
+      .badge-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-weight: 600;
+        font-size: 11px;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)" rx="16" />
+  <rect width="100%" height="100%" fill="url(#cyberGrid)" rx="16" />
+
+  <!-- Ambient Glowing Orbs -->
+  <circle cx="120" cy="80" r="160" fill="#06b6d4" opacity="0.08" filter="url(#cyanGlow)" />
+  <circle cx="1060" cy="220" r="190" fill="#8b5cf6" opacity="0.09" filter="url(#cyanGlow)" />
+  <circle cx="600" cy="170" r="210" fill="#3b82f6" opacity="0.05" filter="url(#cyanGlow)" />
+
+  <!-- Dynamic Network Data Tunnel Waves (Background) -->
+  <g opacity="0.35">
+    <path class="tunnel-flow" d="M -50,220 C 220,150 420,290 680,190 C 880,120 1020,250 1250,170" fill="none" stroke="url(#primaryGrad)" stroke-width="2.5" />
+    <path class="tunnel-flow-fast" d="M -50,260 C 260,310 460,160 740,240 C 960,300 1080,150 1250,220" fill="none" stroke="url(#accentGrad)" stroke-width="1.8" />
+    <path d="M -50,110 C 280,50 500,170 780,90 C 980,30 1140,130 1250,80" fill="none" stroke="#6366f1" stroke-width="1.2" stroke-dasharray="4, 8" opacity="0.5" />
+  </g>
+
+  <!-- Floating Particles & Network Nodes -->
+  <g class="floating-particle-1">
+    <circle cx="140" cy="65" r="4" fill="#06b6d4" filter="url(#softGlow)" />
+    <circle cx="1090" cy="75" r="5" fill="#3b82f6" filter="url(#softGlow)" />
+  </g>
+  <g class="floating-particle-2">
+    <circle cx="80" cy="275" r="5" fill="#8b5cf6" filter="url(#softGlow)" />
+    <circle cx="1130" cy="285" r="4" fill="#10b981" filter="url(#softGlow)" />
+  </g>
+
+  <!-- Left Main Visual: Router / Hardware Gateway Shield -->
+  <g transform="translate(65, 80)">
+    <!-- Concentric Signal Pulse Waves -->
+    <circle cx="55" cy="85" r="75" fill="none" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="4, 4" />
+    <circle cx="55" cy="85" r="55" fill="none" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.25" />
+
+    <!-- Travel Router Hexagon Enclosure -->
+    <polygon points="55,15 105,42 105,102 55,130 5,102 5,42" fill="#0f172a" stroke="url(#primaryGrad)" stroke-width="2.5" filter="url(#softGlow)" />
+
+    <!-- Internal Cyber Router Mesh Lines -->
+    <path d="M 55,15 L 55,70 M 105,42 L 55,70 M 5,42 L 55,70" stroke="#1e293b" stroke-width="2" />
+    
+    <!-- Router Antennas -->
+    <line x1="28" y1="30" x2="12" y2="2" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" />
+    <circle cx="12" cy="2" r="3" fill="#22c55e" />
+    <line x1="82" y1="30" x2="98" y2="2" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" />
+    <circle cx="98" cy="2" r="3" fill="#06b6d4" />
+
+    <!-- Central Lock & VPN Hub Icon -->
+    <circle cx="55" cy="75" r="22" fill="#111827" stroke="#3b82f6" stroke-width="2" />
+    <!-- Lock Shackle & Body -->
+    <path d="M 49,73 L 49,67 C 49,63.7 51.7,61 55,61 C 58.3,61 61,63.7 61,67 L 61,73" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" />
+    <rect x="46" y="72" width="18" height="13" rx="2.5" fill="url(#primaryGrad)" />
+    <circle cx="55" cy="78" r="1.5" fill="#ffffff" />
+
+    <!-- Signal LED Status Indicators -->
+    <circle cx="35" cy="110" r="3" fill="#10b981">
+      <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="55" cy="110" r="3" fill="#06b6d4">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="75" cy="110" r="3" fill="#3b82f6">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Central Header & Text Content -->
+  <g transform="translate(210, 0)">
+    <!-- Top Category Tag -->
+    <g transform="translate(0, 48)">
+      <rect x="0" y="0" width="235" height="26" rx="13" fill="#111c38" stroke="#3b82f6" stroke-width="1.2" opacity="0.9" />
+      <circle cx="14" cy="13" r="4.5" fill="#10b981" />
+      <text x="28" y="17" fill="#93c5fd" class="badge-text" letter-spacing="1">NETWORK ENGINEERING STACK</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="118" fill="url(#primaryGrad)" font-size="36" class="title-text">
+      Awesome Travel Router Setup
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="0" y="152" fill="#cbd5e1" font-size="15.5" class="sub-text">
+      Hardened OpenWrt, GL.iNet, WireGuard Tunnels, Captive Portals &amp; Multi-WAN Bonding
+    </text>
+
+    <!-- Feature Pillars / Badges -->
+    <g transform="translate(0, 185)">
+      <!-- Pill 1: OpenWrt & GL.iNet -->
+      <rect x="0" y="0" width="160" height="30" rx="8" fill="#0f172a" stroke="#06b6d4" stroke-width="1.2" stroke-opacity="0.6" />
+      <text x="80" y="19" fill="#a5f3fc" text-anchor="middle" class="badge-text">⚡ OpenWrt &amp; GL.iNet</text>
+
+      <!-- Pill 2: WireGuard & Tailscale -->
+      <rect x="172" y="0" width="180" height="30" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1.2" stroke-opacity="0.6" />
+      <text x="262" y="19" fill="#bfdbfe" text-anchor="middle" class="badge-text">🔒 WireGuard &amp; Tailscale</text>
+
+      <!-- Pill 3: Captive Portal Bypass -->
+      <rect x="364" y="0" width="175" height="30" rx="8" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.2" stroke-opacity="0.6" />
+      <text x="451.5" y="19" fill="#ddd6fe" text-anchor="middle" class="badge-text">🏨 Captive Portal Bypass</text>
+
+      <!-- Pill 4: Multi-WAN & Bonding -->
+      <rect x="551" y="0" width="165" height="30" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.6" />
+      <text x="633.5" y="19" fill="#a7f3d0" text-anchor="middle" class="badge-text">📡 Multi-WAN Bonding</text>
+
+      <!-- Pill 5: AdGuard / DNS -->
+      <rect x="728" y="0" width="150" height="30" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1.2" stroke-opacity="0.6" />
+      <text x="803" y="19" fill="#fde68a" text-anchor="middle" class="badge-text">🛡️ DNS &amp; Ad-Blocking</text>
+    </g>
+
+    <!-- Quick Spec Indicators -->
+    <g transform="translate(0, 245)" opacity="0.75">
+      <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748b">
+        Target Hardware: GL-MT3000 (Beryl AX) • GL-AXT1800 (Slate AX) • Raspberry Pi CM4 • NanoPi R4S • x86 Mini-PC
+      </text>
+    </g>
+  </g>
+
+  <!-- Right Decorative Network Topology Diagram -->
+  <g class="card-float" transform="translate(980, 50)" filter="url(#softGlow)">
+    <!-- Topology Hub Card -->
+    <rect x="0" y="0" width="180" height="220" rx="14" fill="url(#cardGrad)" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1.5" />
+    
+    <!-- Remote WAN Node -->
+    <circle cx="90" cy="35" r="16" fill="#1e293b" stroke="#38bdf8" stroke-width="1.8" />
+    <text x="90" y="39" font-size="13" text-anchor="middle">🌐</text>
+    <text x="90" y="60" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Public / Hotel Wi-Fi</text>
+
+    <!-- VPN Tunnel Encrypted Link -->
+    <line x1="90" y1="65" x2="90" y2="100" stroke="#06b6d4" stroke-width="2" stroke-dasharray="3, 3" />
+    <text x="120" y="85" font-family="sans-serif" font-size="8" fill="#38bdf8">VPN Tunnel</text>
+
+    <!-- Travel Router Node -->
+    <rect x="25" y="100" width="130" height="42" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+    <text x="90" y="117" font-family="sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">Travel Router</text>
+    <text x="90" y="132" font-family="sans-serif" font-size="8.5" fill="#22c55e" text-anchor="middle">● WireGuard Active</text>
+
+    <!-- LAN Distro Links -->
+    <path d="M 50,142 L 50,170" stroke="#8b5cf6" stroke-width="1.5" />
+    <path d="M 130,142 L 130,170" stroke="#8b5cf6" stroke-width="1.5" />
+
+    <!-- Local Devices (Laptop / Phone) -->
+    <rect x="30" y="170" width="40" height="25" rx="4" fill="#1e293b" stroke="#8b5cf6" stroke-width="1" />
+    <text x="50" y="186" font-size="11" text-anchor="middle">💻</text>
+    <rect x="110" y="170" width="40" height="25" rx="4" fill="#1e293b" stroke="#8b5cf6" stroke-width="1" />
+    <text x="130" y="186" font-size="11" text-anchor="middle">📱</text>
+  </g>
+
+  <!-- Outer Elegant Border -->
+  <rect x="1.5" y="1.5" width="1197" height="337" fill="none" stroke="url(#primaryGrad)" stroke-width="1.5" rx="15" opacity="0.3" />
+</svg>
